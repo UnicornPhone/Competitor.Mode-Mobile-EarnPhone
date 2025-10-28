@@ -1,0 +1,519 @@
+Delivered-To: seodatascience@gmail.com
+Received: by 2002:a05:651c:198c:b0:378:eb07:ab9c with SMTP id bx12csp1384297ljb;
+        Mon, 27 Oct 2025 19:18:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHgbDYW2U4+ycs0/Y5i9+AY4giKeS2TwgGavxZIIYdQeDurQNPRHtItJR5XmsZeTWM7Q88P
+X-Received: by 2002:a05:6e02:1807:b0:430:b3e2:a96e with SMTP id e9e14a558f8ab-4320f8600c7mr27123465ab.28.1761617911413;
+        Mon, 27 Oct 2025 19:18:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1761617911; cv=none;
+        d=google.com; s=arc-20240605;
+        b=c3DfW43m1EU9o8RyfpQD+fW4o/tz2vIPrYzdcCDD8PjjOiHDPeMSC9FWrlSDy2xOCY
+         CFdgoTb7cAh4hq6rdeM1FKFa9bZqZ3ppgFPNXdaXWEyWSdx69ITGW/x1S1V50/Fhe+jX
+         upZskyE/R3eXAPxPt9N5g/Lxdj9XFwXCicQ6IYmcXkpKNm+uGHF0QPWMrqODFTgOzpcz
+         assC7Tkq7klO1ihGzu0/r+/Nj0BNHtCYrm/2QgQw/8sEchuUYArCSIT42BQmPFC8WpI5
+         +YUiXBwz/bv0C2ySNguAyEuwUaMFpg4HRaP9FZ0AChDaQfDQ1eT08OtlZN1CG/1JKhxY
+         ySXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:list-unsubscribe-post:list-unsubscribe:list-id:feedback-id
+         :subject:message-id:mime-version:from:date:content-transfer-encoding
+         :dkim-signature:dkim-signature;
+        bh=mTB3Gvi3Hoi6vNbrlit4LjTUflfajWhLOOi6D57VFXA=;
+        fh=fW7ZZlP6XMxSnMTXp4b4luDGX4YjjVd4Gu9j4wZ7qOs=;
+        b=Bvg4FFoKwQuacED38Q7hxP3EuDAFz1qEmGcGP/xJez9a3g1GlV4IZqbilAZayc8MQ4
+         nhhCrIhPyoRURlAurN9HGIFcq/peCUVkYeQIMTMNBJqGQNJ2H5t4VzYTYiMhKRB0hOXA
+         8t1Gyx3oGCox36+SdxfA/uth9/KzUHam99we0QeTH87gfEgnBHuFsnZd9H4q9iwIxlg6
+         s6+RPUjay808dMGfoHrOt6cb3p+3+DtO67F54sCpDtAMUl8YkovmtceDk+SMXq8/VdmP
+         yyhRD7NIrG9gmEWW4F+ta++VUl3C/8574MvqIc4Y/pZB47mM2TBILwuh3mYmxf9Eg9RJ
+         lPmg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@analystratings.net header.s=s1 header.b=C3cxq3WD;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ZrM8CbVY;
+       spf=pass (google.com: domain of bounces+23732-7c64-seodatascience=gmail.com@marketbeat.analystratings.net designates 149.72.115.76 as permitted sender) smtp.mailfrom="bounces+23732-7c64-seodatascience=gmail.com@marketbeat.analystratings.net";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=analystratings.net
+Return-Path: <bounces+23732-7c64-seodatascience=gmail.com@marketbeat.analystratings.net>
+Received: from o5.ptr4111.analystratings.net (o5.ptr4111.analystratings.net. [149.72.115.76])
+        by mx.google.com with ESMTPS id 8926c6da1cb9f-5aec88f6d76si6075109173.172.2025.10.27.19.18.31
+        for <seodatascience@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 27 Oct 2025 19:18:31 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounces+23732-7c64-seodatascience=gmail.com@marketbeat.analystratings.net designates 149.72.115.76 as permitted sender) client-ip=149.72.115.76;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@analystratings.net header.s=s1 header.b=C3cxq3WD;
+       dkim=pass header.i=@sendgrid.info header.s=smtpapi header.b=ZrM8CbVY;
+       spf=pass (google.com: domain of bounces+23732-7c64-seodatascience=gmail.com@marketbeat.analystratings.net designates 149.72.115.76 as permitted sender) smtp.mailfrom="bounces+23732-7c64-seodatascience=gmail.com@marketbeat.analystratings.net";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=analystratings.net
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=analystratings.net;
+	h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+	feedback-id:list-id:list-unsubscribe:list-unsubscribe-post:to:cc:content-type:
+	date:feedback-id:from:subject:to;
+	s=s1; bh=mTB3Gvi3Hoi6vNbrlit4LjTUflfajWhLOOi6D57VFXA=;
+	b=C3cxq3WDgSAULOs6BYaBzn35Zzh0KjOZyuR5KuaRC6hhKrxw+0WBRkggNCvnn8lFpFrq
+	bvCRgdjq1OVbMmqqT2vRE5NXzG+r2BCAYmhmA0es4739LX0XEU0S08dVStdMsgD+4t/44V
+	dzLOqLr7QHpbYFJ/WG6zFCvk/U5uNwcr19b2PAP/ndnA/aD1SlsXGSeF9XeE+u0gFiQZON
+	uCF8MO+LrsiLizfK/u/QFbx+Sr2qFLfE1U5lhKAC3X+VOa3o2iBX3cwOo7ToBtADoqLmZo
+	1jStpfxmKCzAhb8XeHLPTQqu51n6djRMhHRfwEqf3/HvBl+PN8JgT/eqyW9c2D+w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-transfer-encoding:content-type:date:from:mime-version:subject:
+	feedback-id:list-id:list-unsubscribe:list-unsubscribe-post:to:cc:content-type:
+	date:feedback-id:from:subject:to;
+	s=smtpapi; bh=mTB3Gvi3Hoi6vNbrlit4LjTUflfajWhLOOi6D57VFXA=;
+	b=ZrM8CbVYJN5k0qyoQUgPBAYb84rSyCkOymlt70uSKcTSnw3hLY+EIbhlT/YA0cy5rJeo
+	LGKvkr6Mfslq8+wTku7d9MQZYKRzCVIbU4n9pIRckVySY6yijaj8ppmZbt7C5/kCCc442l
+	0lmpWGiAYScM1AqxoWxxI6wkWZR0/5DgM=
+Received: by recvd-canary-5bdb784f7f-5d6nm with SMTP id recvd-canary-5bdb784f7f-5d6nm-1-69000BD6-47
+	2025-10-28 00:18:30.700654021 +0000 UTC m=+12618593.625143578
+Received: from MjM3MzI (unknown)
+	by geopod-ismtpd-11 (SG) with HTTP
+	id ljY75AqCRpKDo0Wr-y3HRw
+	Tue, 28 Oct 2025 00:18:30.674 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Date: Tue, 28 Oct 2025 02:18:30 +0000 (UTC)
+From: DividendStocks <dividends@analystratings.net>
+Mime-Version: 1.0
+Message-ID: <ljY75AqCRpKDo0Wr-y3HRw@geopod-ismtpd-11>
+Subject: Elon and Apple just made waves for the US #1 software company
+Feedback-ID: TCNum15594:0:dividendstocks:MarketBeat
+List-Id: Dividend Stocks Newsletter <dividendstocks.analystratings.net>
+List-Unsubscribe: 
+ =?us-ascii?Q?=3Chttps=3A=2F=2Fwww=2Eamericanconsumernews=2Enet=2Fscripts=2FListUnsubscribe=2E?=
+ =?us-ascii?Q?ashx=3Fid=3DDA59A47F86DB58279223C8AB8D2DAE4?=
+ =?us-ascii?Q?C&list=3Ddividendstocks&CampaignID=3DTCNum1?=
+ =?us-ascii?Q?5594=3E?=
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+x-campaignid: TCNum15594
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EmUceV=2FnZnxnjoLdoMbPphRZJ8vaYj+epwY2gnPnKDjxJ=2Faac6S6ov16kR?=
+ =?us-ascii?Q?L7ltKa18NNFjUKEANJ7kqXgATnjaac0QlZaEuaE?=
+ =?us-ascii?Q?3X3uFsu=2FARsDwv3qb7JCfGptDL1NnJaWvkDFeYh?=
+ =?us-ascii?Q?QaEycwoSSw53ts3LOQuezuPSTyVWaEHUTOANVA5?=
+ =?us-ascii?Q?0Cnnf6ZekkULDsF2OuWHN0cKfMLSOLs001GAjfV?=
+ =?us-ascii?Q?E134kTieC5hyC2tLbv168UM4ptZt4yqIwPxpxBD?=
+ =?us-ascii?Q?p=2FEvcm8u91XTnsndhm8vLYfuDw=3D=3D?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BuZic6GKEuhNkly9JBf4XkbI19M+8PHD+7FMC?=
+ =?us-ascii?Q?S9B08S3HYDOKRly=2FiTJouO6B7fsbw=3D=3D?=
+To: seodatascience@gmail.com
+X-Entity-ID: u001./turjzd4172xTABvIPAUlA==
+
+<html><head><script type=3D"application/ld+json"> { "@context":"http://sche=
+ma.org","@type":"EmailMessage","description":"Learn More","potentialAction"=
+: {"@type": "ViewAction", "url": "https://www.marketbeat.com/scripts/redire=
+ct.aspx?TriggeredCampaignID=3D15594&UserID=3D17769019&Hash=3DBD35D21C4F567F=
+A6335E42A5DA76CB98C953AD0323AE04FABAEBD5B9A323AE5473FDAC379C1D395D042B9A59B=
+96F877A7EFAD4D23B126530B02D4B39136C75BC&interstitial=3D1&Placement=3DDedica=
+tedEmail&Source=3DBulkFire&Delayed=3D120Min&SubjectLineTest=3D0&SchemaClick=
+=3D1","name": "Learn More"}}</script></head><body><img src=3D"https://email=
+.analystratings.net/wf/open?upn=3Du001.sUM7KtRG2LH6lLNcuDM1vOHea3UirBj0gC0-=
+2BfI8EPJOBDNxt1XUnZiYSFYp6o5-2F9fWveEldCZE2089hD-2BBj5Y3rWX5a13MewVsgrY-2B9=
+jjM-2BrkdTIZF8Sg8pcBZHO3Kx-2B3VxzFCs5DEZqYq5c6vUapInA-2F59OoBGwExuQtOfalp8l=
+aF630H9UAmoTJqaBTrx2FAWybicOR5HYrkc-2F6RNzkxz3VyUwNXH8wJpjqJQnKZnc2jAQxIAau=
+6OesjkzylRh8qSZsKdfZL-2FAjhDCspP4qQ-3D-3D" alt=3D"" width=3D"1" height=3D"1=
+" border=3D"0" style=3D"height:1px !important;width:1px !important;border-w=
+idth:0 !important;margin-top:0 !important;margin-bottom:0 !important;margin=
+-right:0 !important;margin-left:0 !important;padding-top:0 !important;paddi=
+ng-bottom:0 !important;padding-right:0 !important;padding-left:0 !important=
+;"/><div class=3D"preheader" style=3D"color: transparent; display: none; he=
+ight: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hid=
+e: all; visibility: hidden; width: 0;">Move could send this pre-IPO stock s=
+oaring&#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847;=
+ &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#81=
+99;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#=
+847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; =
+&#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#819=
+9;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#8=
+47; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &=
+#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199=
+;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#84=
+7; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#=
+8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;=
+&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847=
+; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8=
+199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&=
+#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847;=
+ &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#81=
+99;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#=
+847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; &#8199;&#847; =
+&#8199;&#847; &#8199;&#847; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy;=
+ &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &s=
+hy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy;=
+ &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &s=
+hy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy;=
+ &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &s=
+hy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy;=
+ &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &shy; &s=
+hy; &shy; &shy; </div><div style=3D"max-width:616px;font-size:15px;margin-l=
+eft:auto;margin-right:auto;"><div style=3D"height:2px;line-height:2px;width=
+:100%;margin:0px;padding:0px;"><img src=3D"https://www.americanconsumernews=
+.net/scripts/standalone/pixel.ashx?provider=3Dother&id=3D17769019&type=3Dac=
+count&pixeldate=3D10/27/2025&emaillist=3DDividendStocks.com" alt=3D"" heigh=
+t=3D"1" width=3D"1" /><img src=3D"https://www.marketbeat.com/scripts/Trigge=
+redCampaignPixel.ashx?TriggeredCampaignID=3D15594&UserID=3D17769019&Placeme=
+nt=3DDedicatedEmail&Source=3DBulkFire&Delayed=3D120Min" alt=3D"" height=3D"=
+1" width=3D"1" /><!--TAG:TC15594--><!-- rpcampaign:TCNum15594--></div><p>Br=
+eaking news,</p>
+<p>Apple just enabled Starlink satellite support to T-Mobile iPhones.</p>
+<p>One of the biggest potential winners from global satellite coverage?</p>
+<p><a style=3D"text-decoration:underline" href=3D"https://email.analystrati=
+ngs.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg=
+ZRhaAY0f4dRd5bGXo8w1-2BzWcNKaDoNLIgnfY3Vh4d9u3CzBGuZ9M-2FYNQtxDrVTEgjBNoc0I=
+d71z1JEQAwtgQRDkNY76LaRg5cCOoOA06u7-2BOt0HdnR-2FpuyowQu4CIRHtCroFnFr9dZEoKh=
+ldnq-2Fmo7C9dOi-2BeZchZB8qtove9T4syZdmVymp4AH84FRDQ0hsetcnblDHFvvS2kbg6sm3b=
+mN8El1QMNkuc8xpExkTdGOVjj1A-2Bil8IKFMDaU7bdNi-2Bk2HfQeVQDD-2B0UxpTrIZ8otBG7=
+EL6dggVmI5e4Jde9NVKOSG0nGmdNlFLsZE71RoL4b43zduG9w62I8b1yZqU9L8knD4ihi4gRA9A=
+zAhbzKI-2FDV-2BBSuRPvvkDtMIMzRU-3DLeCQ_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw=
+1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYRc4sSU2vvzdpTOqJq1ym=
+kxayaDBrNPNsKNNhDNkYAVBbByuKJE1Y45Ft2TKj8hDFtHRS2ypIQgTcnzaX9Sx8QILwlXyfWJD=
+JjQTBP4aGd5-2Fd-2FyKAqYgXP517E33kLRvzCC4vXoOc5n-2F5j4L1rYtr6ZF-2Fm-2BG7lw-2=
+BmatU3hDH-2FejdVZtw4tQe0oBSZ2I1918NgQ-3D-3D"><strong>Mode Mobile.</strong><=
+/a></p>
+<p align=3D"center"><a style=3D"text-decoration:underline" href=3D"https://=
+email.analystratings.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2B=
+qdkFdZns7E8OZ0trgZRhaAY0f4dRd5bGXo8w1-2BzWcNKaDoNLIgnfY3Vh4d9u3CzBGuZ9M-2FY=
+NQtxDrVTEgjBNoc0Id71z1JEQAwtgQRDkNY76LaRg5cCOoOA06u7-2BOt0HdnR-2FpuyowQu4CI=
+RHtCroFnFr9dZEoKhldnq-2Fmo7C9dOi-2BeZchZB8qtove9T4syZdmVymp4AH84FRDQ0hsetcn=
+blDHFvvS2kbg6sm3bmN8El1QMNkuc8xpExkTdGOVjj1A-2Bil8IKFMDaU7bdNi-2Bk2HfQeVQDD=
+-2B0UxpTrIZ8otBG7EL6dggVmI5e4Jde9NVKOSG0nGmdNlFLsZE71RoL4b43zduG9w62I8b1yZq=
+U9L8knD4ihi4gRA9AzAhbzKI-2FDV-2BBSuRPvvkDtMIMzRU-3DSuqo_ZglU1GYmUNU9QYcjZ6k=
+-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYf-2=
+FbGYaEluVoTxIPt9Mv4LMYESEF-2B7as1p-2FcmfSXKOdRL5cP-2FQskPrPb2wD1jQqffYo934-=
+2FkHOeAG7zA9-2BMe9Tg6DuwBB6x5-2FoFr32-2FAF3fx6hR4oORIJZbn6jPBlqgSK3kRegtWuv=
+mds4YMOVRiMqJNWs0PzRwFlIpQD4WXNqOR8ODWRf694-2FL23bnN1ms24Q-3D-3D"><img src=
+=3D"https://www.marketbeat.com/logos/articles/20250929083358_unnamed.png"><=
+/a></p>
+<p>Just about everything Elon touches turns to gold:</p>
+<ul>
+<li>SpaceX now worth $350B+</li>
+<li>Tesla up by over 25,000% since IPO</li>
+<li>And now - iPhone&rsquo;s get satellite access</li>
+</ul>
+<p>But while Wall Street focuses on Apple, Mode Mobile is quietly positione=
+d to capitalize on this global satellite revolution.&nbsp;</p>
+<p>Their EarnPhone technology already:</p>
+<ul>
+<li>Reaches 50M+ users worldwide</li>
+<li>Helped those users save and earn $325+ million</li>
+<li>Grew revenue 32,481%</li>
+</ul>
+<p>And that was before global satellite coverage.</p>
+<p>With SpaceX eliminating "dead zones," Mode's earning technology can reac=
+h 3B+ unbanked people globally in rural populations worldwide.</p>
+<p>We&rsquo;re talking about emerging markets with no infrastructure.</p>
+<p>Right now, accredited investors can still invest at<a style=3D"text-deco=
+ration:underline" href=3D"https://email.analystratings.net/ls/click?upn=3Du=
+001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trgZRhaAY0f4dRd5bGXo8w1-2Bz=
+WcNKaDoNLIgnfY3Vh4d9u3CzBGuZ9M-2FYNQtxDrVTEgjBNoc0Id71z1JEQAwtgQRDkNY76LaRg=
+5cCOoOA06u7-2BOt0HdnR-2FpuyowQu4CIRHtCroFnFr9dZEoKhldnq-2Fmo7C9dOi-2BeZchZB=
+8qtove9T4syZdmVymp4AH84FRDQ0hsetcnblDHFvvS2kbg6sm3bmN8El1QMNkuc8xpExkTdGOVj=
+j1A-2Bil8IKFMDaU7bdNi-2Bk2HfQeVQDD-2B0UxpTrIZ8otBG7EL6dggVmI5e4Jde9NVKOSG0n=
+GmdNlFLsZE71RoL4b43zduG9w62I8b1yZqU9L8knD4ihi4gRA9AzAhbzKI-2FDV-2BBSuRPvvkD=
+tMIMzRU-3DBk3C_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2B=
+bt8cYOMwzhIzRtK90btNN4TEpqtdwqYWhcgXDig9dPLZPI7YikwF-2B8NknnM1jqu95rokKSpRj=
+lZBQb-2ByXGibtIAFqkd8y9fVafJVf5ZNZ1qYT7CY21-2FFSLcDpOo0THWHLJh-2FGmfQgMylBG=
+-2FzX3X0ziWLpXQMP5Nu4KjM7EbxIa809uMKYqqUkYihVS8KAqzbqw1yE9-2BJcjhwPSjWIGQte=
+t4RtxARBRpg-3D-3D"><strong> $0.50/share.</strong></a></p>
+<p>Over 56,000 shareholders have already claimed their shares and they&rsqu=
+o;ve just secured the $MODE ticker from Nasdaq. <strong>The time to invest =
+is now</strong>, before any potential IPO.</p>
+<p><strong><a style=3D"text-decoration:underline" href=3D"https://email.ana=
+lystratings.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7=
+E8OZ0trgZRhaAY0f4dRd5bGXo8w1-2BzWcNKaDoNLIgnfY3Vh4d9u3CzBGuZ9M-2FYNQtxDrVTE=
+gjBNoc0Id71z1JEQAwtgQRDkNY76LaRg5cCOoOA06u7-2BOt0HdnR-2FpuyowQu4CIRHtCroFnF=
+r9dZEoKhldnq-2Fmo7C9dOi-2BeZchZB8qtove9T4syZdmVymp4AH84FRDQ0hsetcnblDHFvvS2=
+kbg6sm3bmN8El1QMNkuc8xpExkTdGOVjj1A-2Bil8IKFMDaU7bdNi-2Bk2HfQeVQDD-2B0UxpTr=
+IZ8otBG7EL6dggVmI5e4Jde9NVKOSG0nGmdNlFLsZE71RoL4b43zduG9w62I8b1yZqU9L8knD4i=
+hi4gRA9AzAhbzKI-2FDV-2BBSuRPvvkDtMIMzRU-3DtaJI_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2p=
+xwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYX4YvjvDDUsk8=
+JSSk8k9L6oG3RRMhD8us1V8jpBybIfvCWXF75zdqoiv9YJCmEz7D6tcSncZD3LlLZSobgiopLUQ=
+1YaY4m7b0WRgHMy8LrXUWpXSG4oSCpaOSes-2Fh64JJnLE3jqML8h5wQzSLuFygALAVw-2BlXEz=
+ntWZwLOc-2FE5ZwbRyUj2pE1k-2FLQ2eboee9eQ-3D-3D">Tap into a $1T opportunity &=
+mdash; invest now at just $0.50/share and get up to 120% bonus!</a></strong=
+></p><br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/>&nbsp;<br/=
+><hr/><div style=3D'text-align:center;font-style:italic;margin-bottom:1em;f=
+ont-size:12px'>Featured Story from MarketBeat</div><h1>3 Small Caps Hitting=
+ 52-Week Highs: Take Profits or Let Ride?</h1><p><em>Written by Dan Schmidt=
+. Published 10/15/2025. </em></p><p><a href=3D"https://email.analystratings=
+.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg-2F=
+Gy-2By2ogVG7RmHpX0utvERE-2FFLIGvkUDiO-2Bc9VKTvu3fbWGODGQycyT1l832KNywUXBek7=
+eb6E32MsAe4RWmB43xDewVGUE715OcN0zv9vxGorEx0KE28pNwD9GDJqn6W8nUYfWRWP7etFWAu=
+jwkBCI5asvu-2Bl0dGDxSpgTlky-2Fy8ayV37VQgXTVJkKh2-2BCk-3D394K_ZglU1GYmUNU9QY=
+cjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdw=
+qYZNfkVywqsRdjvjWgkwUxwY3KKlrjBvZZGZTPSX09OP1j5JBqw-2FitJqt680NVZ4ZzT8Y1veF=
+v4UQhAAzI3HxkftVKQRGtlt-2Bz3L0xmhqOmaAIFG5iXnqW7NB3xUFSzoPdJBYBIjx1Dz9zwHY1=
+JY-2Fd9G37X5T2th9MKRgHWmTh7OKEwP6bJeWKDLTyVfmO5s-2FlQ-3D-3D" target=3D"_bla=
+nk"><img class=3D"article-image-one" src=3D"https://www.marketbeat.com/logo=
+s/articles/med_20251014083159_3-small-caps-hitting-52-week-highs-take-profi=
+ts-or.jpg" alt=3D"small cap written on post it note " width=3D"600"></a></p=
+><div class=3D'key-points-box'><h3>Key Points</h3><ul>
+<li style=3D"font-weight: bold;"><strong>Small-cap stocks often require a m=
+ix of fundamental and technical analysis when performing due diligence.</st=
+rong></li>
+<li style=3D"font-weight: bold;"><strong>Stocks hitting their 52-week high =
+often have bullish momentum, but this isn't a foolproof method for picking =
+winners.</strong></li>
+<li style=3D"font-weight: bold;"><strong>Using a variety of indicators is o=
+ften the best strategy; we'll use several tools to identify bearish or bull=
+ish signals in the following three small caps.</strong></li>
+</ul></div>
+<p>When mega-cap stocks are hitting new all-time highs every other week, it=
+'s easy for smaller corners of the market to get lost in the excitement. If=
+ it's not artificial intelligence or crypto, it barely earns a 30-second so=
+undbite on the financial news cycle right now. But gains count whether they=
+ come from large or small stocks, and when speculative fervor intensifies, =
+small-cap shares can quickly catch up to their bigger counterparts.</p>
+<p>Today, we=E2=80=99ll examine three small-cap stocks that have reached a =
+key technical level: their 52-week highs.</p>
+<div style=3D"border:1px solid #ccc;border-radius:5px;padding:20px;margin-t=
+op:1.5em;margin-bottom:1.5em;"><h3 style=3D"text-align:center;padding-botto=
+m:1em;"><a style=3D"color:#333;text-decoration:none;" href=3D"https://email=
+.analystratings.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFd=
+Zns7E8OZ0trgZRhaAY0f4dRd5bGXo8w1-2BzWcNKaDoNLIgnfY3Vh4d9nPm3yED2zgDPZQ-2ByW=
+417ujyxTVwMS49AYjUDZeXGoW13NVyG9j-2BfQJSHsw2t3xxRNhVHv8nlGqGyNbv2jPMPum-2FC=
+kuEOwyKuOnC5EPu-2BAEAq0mleRhbUyAZe1xlK-2FDvVoOw4LWJwxoCE4A15ICqbSPrwhViNGEh=
+jZ6T-2Ba-2BqjbVDrgNoFIfQdLXSlxUMV-2F-2BD0FCnNLoNM91M6TNKb1TaMxAYUHJSdNjaNIg=
+K8opxAoeMQ8HhASBAqtOE-2BQrUJAmmvGuBUaFK0vLkQgsuTZn3nhN12olDuxi7eEmLittVTjRc=
+A5DIXznq0Ej422Jq1PiDZS1xCTn9OixFI4rtM6aoPNQ-3DYL93_ZglU1GYmUNU9QYcjZ6k-2Ft9=
+Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYf-2FR9Bp=
+wmr7NgcUzDMc5L5T6B8C-2B6kXF7hvgR1L3pawWyi1ZiQCqRix-2FBb4-2FT4UJ2M-2B-2BOctv=
+GTtMkw35CKbDN3MloDWB2CONxBec8inzEskrHtpzH5GsxsPpGpLk33WS2jblg5TGi1sMzOnJmay=
+-2BaFsugvfO2gH-2FGSz39Cnh5POJ3PijIyUPWyILPV2gzyQRSg-3D-3D">BlackRock=E2=80=
+=99s Shocking Crypto Move (Ad)</a></h3><p>BlackRock, Fidelity, and JPMorgan=
+ have quietly shifted billions out of Bitcoin and into a single emerging cr=
+ypto =E2=80=94 now called =E2=80=9CWall Street=E2=80=99s preferred choice=
+=E2=80=9D =E2=80=94 with tech giants like Microsoft, Google, and Amazon alr=
+eady using it.</p><a href=3D"https://email.analystratings.net/ls/click?upn=
+=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trgZRhaAY0f4dRd5bGXo8w1=
+-2BzWcNKaDoNLIgnfY3Vh4d9nPm3yED2zgDPZQ-2ByW417ujyxTVwMS49AYjUDZeXGoW13NVyG9=
+j-2BfQJSHsw2t3xxRNhVHv8nlGqGyNbv2jPMPum-2FCkuEOwyKuOnC5EPu-2BAEAq0mleRhbUyA=
+Ze1xlK-2FDvVoOw4LWJwxoCE4A15ICqbSPrwhViNGEhjZ6T-2Ba-2BqjbVDrgNoFIfQdLXSlxUM=
+V-2F-2BD0FCnNLoNM91M6TNKb1TaMxAYUHJSdNjaNIgK8opxAoeMQ8HhASBAqtOE-2BQrUJAmmv=
+GuBUaFK0vLkQgsuTZn3nhN12olDuxi7eEmLittVTjRcA5DIXznq0Ej422Jq1PiDZS1xCTn9OixF=
+I4rtM6aoPNQ-3D47ol_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3H=
+x-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYUKPw5xIlbcW7OOgg6SxDKtsH7P50FB-2BGWk1Rc-=
+2BPAAnQsaRdIHWW98mfxjEi4ySik9yKLv8B3GGQafMba8MbsVVg2o4camXEy0X-2F7rYVr2DFb8=
+TpZmv90ufGh3ptcVg8gNdVcPJ5knkHseQy-2FdO33MPOL1IXAbL0J5cgGiDgSDuN7MbYjm4Vfpr=
+koUvHN9AAfA-3D-3D">Click here to learn more about this $16 trillion crypto =
+opportunity</a><img src=3D"https://www.marketbeat.com/scripts/TriggeredCamp=
+aignPixel.ashx?TriggeredCampaignID=3D15502&UserID=3D17769019&Placement=3DEm=
+ailPlacement&Source=3DBulkFireTest3&Delayed=3D0" alt=3D"tc pixel" height=3D=
+"1" width=3D"1" /></div><p>Is it time to take profits on these winners, or =
+are their rallies only getting started?</p>
+<h2>Using Research to Inform Small-Cap Investment Decisions</h2>
+<p>Small caps don=E2=80=99t always behave like <a href=3D"https://email.ana=
+lystratings.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7=
+E8OZ0trhN69yjm-2FkAS5hJRDHPIEdKmNy2Q1gofLQJ7yT6NjLY6p3s1B5mv0ixXcrBFkNDUEs-=
+3DB-gR_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMw=
+zhIzRtK90btNN4TEpqtdwqYX6bpZORdYKpUwZrdYqgEnG6p1L-2BTaN34arGUEbCF6UiDBSiR6u=
+c45C7mSCNTD2VCqodW56N92FhiC2QXq1RbecD2q1T1CaSPn89fyFAtWU8TXS2n6cluTL6djtYBR=
+nicvjXEtuoDlE8gqfx67Bp-2FareUpn0a6FDdAFWfcRS4ZGpOtFqCM-2BTOLjFzzZ8IVQB2A-3D=
+-3D">large-cap companies</a>; their volatility often deters risk-averse inv=
+estors. You need to pay attention to both fundamental and technical signals=
+ to trade small caps successfully, which can be tedious for investors who p=
+refer not to monitor day-to-day market gyrations.</p>
+<p>When a stock makes a new 52-week high, it is typically viewed as a bulli=
+sh momentum signal since new highs often lead to more new highs.</p>
+<p>Of course, if all you needed to do was buy every stock <a href=3D"https:=
+//email.analystratings.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-=
+2BqdkFdZns7E8OZ0trjzUg-2BalhlcJoiPTMCXt48jp9syWPqlrC2WGIkJxWMEjA-3D-3D1HVx_=
+ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK=
+90btNN4TEpqtdwqYeZcWIaG5JWR8V-2B8mi-2FdKEd0-2BEM66o4jgANeeQL6683xOtPIgUoWi6=
+312zuqFHE93uNPlWqYdeAOy0VeIhV6JgmX1xPL2FwIfH7DyArM-2BeR17vKvZEfRcLUgbdWxJCV=
+pV3AXG9QcGPRwUsWvjM6lkNj-2Fe9uUFAFbJ80nnNBpRIAuq64FOWZg01FFIDaZg7GmuA-3D-3D=
+">breaking out to 52-week highs</a> to earn outsized returns, every investo=
+r would be using that as a blanket strategy. Instead, a 52-week high should=
+ serve as a beacon that directs you to take a closer look. The tools you us=
+e in your research usually depend on your time frame.</p>
+<p>If you=E2=80=99re a long-term investor, fundamental metrics and future c=
+atalysts are crucial. If you have a shorter timeline (day or swing trading)=
+, incorporate technical tools like moving averages and momentum oscillators=
+ to find signals.</p>
+<p>The following section focuses on those technical signals as we examine t=
+hree small-cap breakout candidates that recently surpassed their 52-week hi=
+gh-water marks.</p>
+<h2>3 Small-Cap Breakouts: Time to Sell or Hold for More Gains?</h2>
+<p>What counts as a small-cap stock? For this piece, we=E2=80=99re using co=
+mpanies with market capitalizations under $5 billion. These three companies=
+ operate in different <a href=3D"https://email.analystratings.net/ls/click?=
+upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trj-2FmMDFonPg48t5Cp=
+kCc3a4pGJVOg62QNrVh5owieSO4w-3D-3DBJPt_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw=
+1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYWOsMebdfc2maYmW-2BO8=
+LSqZdYcDCkd5uNmR8DfNKcM4aNGfdZOpHlg5Pil70g2rbncrmqnKf1-2FA7BXMzTJwaYf7GUB0A=
+CZNHKMRRmvhNIjMD-2BgqkwWr4pR50cABAx4MMGotuHFBpuOLcEc4L4iwp-2FxyatEMDP3jhJkq=
+WpjRmOMFpxW1MKT8W0QLCZFhSmfw-2Fug-3D-3D" target=3D"_blank" rel=3D"noopener"=
+>stock sectors</a>, and various market influences have triggered their brea=
+kouts.</p>
+<h3>Sunrun: Riding Unexpected Solar Tailwinds</h3>
+<p>Sometimes, bad news can be good if the market had been pricing in someth=
+ing far worse. When the One Big Beautiful Bill Act (OBBBA) was being debate=
+d in Congress, many expected federal solar tax credits and subsidies to be =
+eliminated.</p>
+<p>Solar stocks spent much of the first half of 2025 in a drawdown while in=
+vestors anticipated those changes.</p>
+<p>When the final bill was signed into law, investors learned that federal =
+solar tax advantages weren=E2=80=99t wiped out. While the bill did call for=
+ <a href=3D"https://email.analystratings.net/ls/click?upn=3Du001.WeKo-2BCuH=
+ku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trhBBoTn7XXjqtH9U12X4z0GqlHancMaku-2FNe1E=
+RPn6PqgG-2BH7YXA81EbAtRz9kX4R5a9WuOXEkCSW3htlPuc1O8zMX7_ZglU1GYmUNU9QYcjZ6k=
+-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYdjZ=
+vPI8dqbD1qeyXVFSe80FgbQIUBcRhrQosuGFVEw6mnB0aR44iEB1KibIaOL-2BqfuacHee2yuPq=
+sfsA6MQG0oehrZHY8Y9sxIvtq0DeqrBbpvaxquYm44AIydA5sMiZ5FxWYvU58FgiBIQYcL-2Fv4=
+t16XaASl04-2BKisPRvQCQ2HlunzWO-2Biz-2BFybANvehWFrg-3D-3D">phaseouts of some=
+ solar initiatives</a>, the outcome was worse than ideal but not catastroph=
+ic.</p>
+<p>In the months since the bill=E2=80=99s passage, solar stocks have recove=
+red, particularly small caps like <a href=3D"https://email.analystratings.n=
+et/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg5fa86=
+-2FL2-2BFzn2tfDHL8Wn7jztzfmp6H4QrDsEEL8TqQ-3D-3DTuzx_ZglU1GYmUNU9QYcjZ6k-2F=
+t9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYSMUKT0=
+yo-2FAMCbZGUnWinDznk5CNIwCeX0CcMmzhbNXOI-2F1soCi-2BhFTWj2-2F94tyOLmK634AleS=
+1Tv91ucOd-2BnmLqP-2BDvHtpeTCl9hjM7VSiZ6O-2F7Qeg7qbgHrPVIc2UZv5sCUZVYz4HkQy-=
+2BY3NrWJIinFjv4GPZ3pMuhHR3qqieUVifm5kSw-2FJEeRsqEKKmLzQ-3D-3D">Sunrun Inc. =
+(NASDAQ: RUN)</a>.</p>
+<p><a href=3D"https://email.analystratings.net/ls/click?upn=3Du001.WeKo-2BC=
+uHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg-2FGy-2By2ogVG7RmHpX0utvERE-2FFLIGvk=
+UDiO-2Bc9VKTvu3fbWGODGQycyT1l832KNywUXBek7eb6E32MsAe4RWmB43xDewVGUE715OcN0z=
+v9vxGorEx0KE28pNwD9GDJqn6W8nUYfWRWP7etFWAujwkBCI5asvu-2Bl0dGDxSpgTlky-2Fy8a=
+yV37VQgXTVJkKh2-2BCk-3D7Ymk_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGe=
+ra-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYTSNguN7JBJNiUD8gxfulFxZj-2Ff1dr=
+o3DsuE1e2PygxBMYar7qmK9Vd0VZNPm1fXYS2AkRIxycTp1Jy5pCY7Eu9iDpjy8ikVuoGzUrL8h=
+gtbU4zz5fLK-2FynNtZ0fM48zDWg85L0qxzuylUtdxqWIxUdOxGDjyPeO0oM-2B-2Fa3LIb03Tq=
+hN9eAHlwOgvUtYTpOkYA-3D-3D" target=3D"_blank"><img class=3D"aligncenter" sr=
+c=3D"https://www.marketbeat.com/logos/articles/med_20251013230204_blobid0.p=
+ng" alt=3D"RUN stock chart " width=3D"600" loading=3D"lazy"></a></p>
+<p>Sunrun has received <a href=3D"https://email.analystratings.net/ls/click=
+?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg5fa86-2FL2-2BFzn=
+2tfDHL8WnLDc-2FrTvy3OWhVFCgzHOucw-3D-3D2xx6_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwr=
+hJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYXEWVEuGNOA10Dcc=
+DdHMX540dnsYv0-2BAdjUGe9-2BzeIg7s-2FtK0WExZVskYy1K97RmaU5kG-2BWImwITRqjxpvU=
+Wp97XmCuRjlkmIBqDBIFuJ2ir53LmnrNh3uNMB9VOMMNk9GR2cgFJpumBluphT6N7ytgRIr7X3x=
+WcN-2FC1yk-2Ba8ftdqZvcJ0j6STzHA2m5hEuk6w-3D-3D">several analyst upgrades</a=
+> in the last two months, and the chart shows encouraging signs. The price =
+has broken out above both the 50-day and 200-day simple moving averages (SM=
+As), and a Golden Cross confirms upward momentum.</p>
+<p>Additionally, the Relative Strength Index (RSI) has not yet reached over=
+bought levels, suggesting this rally may have room to run.</p>
+<h3>ACM Research: Surprise, It=E2=80=99s a Semiconductor Company</h3>
+<p>It wouldn=E2=80=99t be a complete stock discussion without at least one =
+tech name. <a href=3D"https://email.analystratings.net/ls/click?upn=3Du001.=
+WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trjPQGm1Y0C9ZubVJglyXYEbSEL61A0=
+Ppmo0k9HIlL9jMw-3D-3DrWZe_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera=
+-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYRH5jbpjcKB1i7w-2Fl24QgLpo2MDAiYcY=
+OGE0NANdeYm21Hxyn-2BY70BVY57EgXhEH7m8p3X60e7sLtxiyAbHRfJ3KFiAoU21PRPUHeTFFk=
+zDYEB1-2BKnSDb-2F871RYMSYjqv-2BSzSMuKseTuZDmeYv6t5llUnrLj9fskYcr33DsoZ3gvIz=
+EJhHBEOOScnNd-2BRHOMCw-3D-3D">ACM Research Inc. (NASDAQ: ACMR)</a> sells cr=
+itical semiconductor cleaning equipment, and its roughly $2 billion market-=
+cap stock is up more than 150% year-to-date.</p>
+<p>The catalyst needs little explanation: anything tied to AI has been bid =
+aggressively higher. The question is how much longer ACMR=E2=80=99s ride ca=
+n continue.</p>
+<p>The ACMR daily chart paints a less promising picture than RUN=E2=80=99s.=
+ The stock has established support at the 50-day SMA and the longer-term tr=
+end appears intact, but the price has surged well above that support and th=
+e RSI moved into overbought territory, triggering a pullback.</p>
+<p><a href=3D"https://email.analystratings.net/ls/click?upn=3Du001.WeKo-2BC=
+uHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg-2FGy-2By2ogVG7RmHpX0utvERE-2FFLIGvk=
+UDiO-2Bc9VKTvu3fbWGODGQycyT1l832KNywUXBek7eb6E32MsAe4RWmB43xDewVGUE715OcN0z=
+v9vxGorEx0KE28pNwD9GDJqn6W8nUYfWRWP7etFWAujwkBCI5asvu-2Bl0dGDxSpgTlky-2Fy8a=
+yV37VQgXTVJkKh2-2BCk-3DaEBo_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGe=
+ra-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYbriRBbk09DOhqnBcEEJMKKqN50KUEwJ=
+goCgd8OOkex6WHbzxuB3FhT13v66Wrpyhq4EXV724uZyYqtpg3M7hsxbSJdruc8GNYYPE7AaRp2=
+fcNh8xgYGY0bqc-2B7-2BVXH1smXhCMF0HXjrQH47wKKHfFH2W1EangaQEHYdhri06i0h-2Bwat=
+HTbBKxtqWnr3KNGDjA-3D-3D" target=3D"_blank"><img class=3D"aligncenter" src=
+=3D"https://www.marketbeat.com/logos/articles/med_20251013230204_blobid1.pn=
+g" alt=3D"ACMR stock chart " width=3D"600" loading=3D"lazy"></a></p>
+<p>While betting against AI can be stressful, ACMR looks likely to retrace =
+toward its 50-day SMA before any sustained rally resumes.</p>
+<h3>Sonos: A Surprising Breakout in a High-Tariff Environment</h3>
+<p><a href=3D"https://email.analystratings.net/ls/click?upn=3Du001.WeKo-2BC=
+uHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg05Kkc4HsViaCYxijNV0ox5v0i-2FMjZYXwqF=
+WnKVAokDw-3D-3DvTkd_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3=
+Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYS-2Bxuqlbdrlq4W6G9mFXFvFNX2S8Y0rBJMpiot=
+dyrVgpwSdGzOC8StUu-2FQ2fxI1PbBrQEF8er7VaVfsfpti8z-2FrmTn7JpdezVBZc1y087lsMM=
+wjQl8PwuI6-2FOCC88kCM6P6Cla0kdGM1pqURG9M5kJJX-2F3KfQxDnM6COf2vp4ZjCOPAwevPT=
+0yQR35UJBme7TA-3D-3D">Sonos Inc. (NASDAQ: SONO)</a> makes the wireless audi=
+o gear that many consumers use for home entertainment.</p>
+<p>The sector faces headwinds from high tariffs. In its <a href=3D"https://=
+email.analystratings.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2B=
+qdkFdZns7E8OZ0tri0yKh-2FVYlXlGzlp2QJHJ4PDAVmJh32BKZAoN72cgt-2FYnzOs97ShJfny=
+RN2OpeRX5A-3DfsXv_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx=
+-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYe-2F16v6e05p7XfpSRvS9vvtV0SG8MILNjHydIN1Q=
+WHp3OLPg6bATLllfz2zo3yJ4uM6z-2FM2JPyH9YaaAKVqCNUew-2Fyesb5uueb3CajoVL9BFaqv=
+Iun3ACkTPgHW4sIlTXEZOvfNUnRKx9ngZv1h5q8NdpEULC-2BKVO6lSpKIMIQOXwGAiAJAMQ91K=
+QsmAlGPa1Q-3D-3D">Q3 2025 earnings report</a> (released Aug. 6), Sonos miss=
+ed earnings estimates despite a slight revenue beat.</p>
+<p>Executives also warned that U.S. tariffs on imports from Vietnam and Mal=
+aysia will force Sonos to raise prices later this year.</p>
+<p>Despite these fundamental pressures, the stock has risen more than 50% o=
+ver the past three months on a wave of momentum. That creates a tricky situ=
+ation: the company faces margin pressure from tariffs even as technicals =
+=E2=80=94 including a Golden Cross =E2=80=94 signal strong upside.</p>
+<p><a href=3D"https://email.analystratings.net/ls/click?upn=3Du001.WeKo-2BC=
+uHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trg-2FGy-2By2ogVG7RmHpX0utvERE-2FFLIGvk=
+UDiO-2Bc9VKTvu3fbWGODGQycyT1l832KNywUXBek7eb6E32MsAe4RWmB43xDewVGUE715OcN0z=
+v9vxGorEx0KE28pNwD9GDJqn6W8nUYfWRWP7etFWAujwkBCI5asvu-2Bl0dGDxSpgTlky-2Fy8a=
+yV37VQgXTVJkKh2-2BCk-3DIRnO_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGe=
+ra-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYZwSj8zn83WsANkp7cWVaqThE2EvXnJd=
+JROaSqcBeC0xH-2Blnfkx2Q4JFTrSlESGgbiOT3oPdvBn-2BJtcesYXrCovrRDQCCcGIWn5x0mh=
+Go6osAa2C5liC7eTPLJNTOC6F4wXRaVXd2X2fvD7-2BSa0Cft9Gh8tNHEIeyJnG4-2BR8Q2N0Og=
+wlkQQ-2FghJrULBYR-2Bdz-2Bw-3D-3D" target=3D"_blank"><img class=3D"aligncent=
+er" src=3D"https://www.marketbeat.com/logos/articles/med_20251013230204_blo=
+bid2.png" alt=3D"SONO stock chart " width=3D"600" loading=3D"lazy"></a></p>
+<p>One key indicator to watch is the RSI, which recently moved into overbou=
+ght territory. If the RSI cools, momentum in SONO shares could fade. Should=
+ the stock pull back, the 50-day SMA would be an important support level to=
+ monitor.</p><br/>&nbsp;<br/><div style=3D"font-size:11px;line-height:125%;=
+font-family:sans-serif;">Thank you for subscribing to DividendStocks.com's =
+daily newsletter for dividend and income investors that covers ex-dividend =
+stocks, new dividend declarations, dividend stock ideas, and the latest mar=
+ket news.<br/>&nbsp;<br/>This email content is a sponsored message provided=
+ by Mode Mobile, a third-party advertiser of DividendStocks.com and MarketB=
+eat. <br/>&nbsp;<br/>&nbsp;<br/>This offer is only open to accredited inves=
+tors.
+<br/><br/>
+*Mode Mobile recently received their ticker reservation with Nasdaq ($MODE)=
+, indicating an intent to IPO in the next 24 months. An intent to IPO is no=
+ guarantee that an actual IPO will occur.
+<br/><br/>
+*The Deloitte rankings are based on submitted applications and public compa=
+ny database research, with winners selected based on their fiscal-year reve=
+nue growth percentage over a three-year period.
+<br/><br/>
+*Tesla return calculated based on Yahoo Finance adjusted stock price data f=
+rom June 29, 2010 to January 31, 2025.<br/>&nbsp;<br/>&nbsp;<br/>If you hav=
+e questions about your newsletter, please don't hesitate to contact MarketB=
+eat's South Dakota based support team at <a style=3D"" href=3D"mailto:conta=
+ct@marketbeat.com">contact@marketbeat.com</a>.<br/>&nbsp;<br/>If you no lon=
+ger wish to receive email from DividendStocks.com, you can <a style=3D"" hr=
+ef=3D"https://email.analystratings.net/ls/click?upn=3Du001.WeKo-2BCuHku2kJm=
+VIsYmGxm6TJPtAQI7QzaJ6QRWygOcjce1lpgyZ99ghAWhlHrLlFdBBZpojccLYy6SHR9-2BWf4-=
+2F-2BlrERHDxwTbz6tf4MheoXzR9OI66nRF3nRJiWkxA5m1dEDDsyIHHxYR8Z4-2BDuvDvYh-2B=
+snKiZ9QGaEIxv7wUBOIAGPRzZxLn4Z-2FZXegKfrvCRQ1-2BXMFty4oYYv7sz3cR-2FUixzfaUz=
+MoLlhgCkzKkVezsFLoF-2BiAohlvnsC2rIUdVFDdCgiDmzHGHW8h7ea3AwjUzs8baD6spAN0fJX=
+ZjUff4yor3wUL9hn5aF0IEFDD6fHnNkIET7C-2BQ-2FT4BiezHtEm0wBKBPOtnZN476gpZ2mwDB=
+KpL4baqfmcOKTF3JQVrNArexXUyL33iQTYM1-2BOQ-3D-3DiHM__ZglU1GYmUNU9QYcjZ6k-2Ft=
+9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIzRtK90btNN4TEpqtdwqYXBh7RQd=
+tIY0JdxdvL7hhJ1qPfCj6eLyix01iRrRB4ai1QuxPXazq6L5a0NxScGiI65uRvIPtVEdRGzy7Bn=
+TpANqHq7geu1feuC4yUcND8AUd7e0W3RjRFZaUpIge4Wfs4JkvvkMJVImY7cySuiSXq-2F3Qu9Z=
+mxFAe0BkWl7NXZn2VFxSMb9WkVENCg0wjCTEnA-3D-3D" target=3D"_blank">unsubscribe=
+</a>.<br/>&nbsp;<br/>&copy; 2006-2025 MarketBeat Media, LLC. All rights res=
+erved.<br/>345 N Reid Place, Sixth Floor, Sioux Falls, SD 57103. U.S.A.<a s=
+tyle=3D"color:#FFFFFF !important;font-weight:400; text-decoration:none!impo=
+rtant;" target=3D"_blank" href=3D"https://email.analystratings.net/ls/click=
+?upn=3Du001.WeKo-2BCuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trjk3nIkzl0yK2XmLGM=
+-2Fyq7GBI7mG4Z8keErMJi4yb09mxO4NpaC9oPsdD5b8sTGSuzmRTQwslJJi2-2FCi6q8o3dpyJ=
+FV_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYOMwzhIz=
+RtK90btNN4TEpqtdwqYRMmyfx-2Ft0e-2BtjwdFG1GG8QUJHQeDfxnIKetiZtMbjqkIdBnFt-2B=
+QsuUQEqmJwQgk5gcsDgH-2BfUp1-2FTxv6GKpOe1AJMwWbbooasC7eEGIdt4PCVMsy4x0ng-2FB=
+rIhpck6SfPEMQel7REqCRwC1nyZ4mqkkLvDOPqUixODE-2B0V7Qx7GtDLn7Ud5en-2BkjsYhQLJ=
+oUg-3D-3D">.</a><div>&nbsp;</div><strong>Check This Out:</strong> <a id=3D"=
+todays-bonus" style=3D"text-decoration:underline;font-weight:bold;color:#00=
+77B4;" href=3D"https://email.analystratings.net/ls/click?upn=3Du001.WeKo-2B=
+CuHku2kJmVIsYmGxteRO-2BqdkFdZns7E8OZ0trgZRhaAY0f4dRd5bGXo8w1-2BzWcNKaDoNLIg=
+nfY3Vh4d9tRCgQ0rjYdG1Vxx-2BYG41oeXPqmfpr0q4cM9-2BpaG9gKIHwuHY3vCt7BtThZ-2Bn=
+mWwMh2mrJ29qNw-2FmUys2-2By6QVjCoxHdMXifur0PRcNGLR3ZyupjWcK7cf9ZOTCbZBXWsw-3=
+D-3D0slh_ZglU1GYmUNU9QYcjZ6k-2Ft9Op2pxwrhJBNw1nsitNkoeGera-2FOr3Hx-2Bbt8cYO=
+MwzhIzRtK90btNN4TEpqtdwqYd3lguWpVg0Fq7jtU5Mkf4TNgxdaONRNdi1NWPcMULUyGLfw7fl=
+ifCTRauu09mkFicoS39fJOMUDGpDWrPxoa0RdlNk3MRS69UTsSp89ItTdToPEAK9Tx-2FF5ADo2=
+upRS9lZ-2BUpCildsyzT5rf1Fgu6-2B6nd8H5HMoHt546plxUc00h8t2k3w4C336Xw-2FJumM1g=
+A-3D-3D">Write this date down</a> (From Golden Portfolio)</div></div></body=
+></html>
